@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cobaltfield>
+    <name>Embed.ly</name>
+    <group>Special Form Elements</group>
+
+    <config><fields name="params">
+        <fieldset name="tmpl">
+            <field type="filelist" name="template_input" filter="php$" hide_none="1" hide_default="1" directory="/components/com_cobalt/fields/embedly/tmpl/input" label="F_TMPLINPUT" default="default.php" />
+            <field type="filelist" name="template_output_list" filter="php$" hide_none="1" hide_default="1" directory="/components/com_cobalt/fields/embedly/tmpl/output" label="F_TMPLLIST" default="list.php" />
+            <field type="filelist" name="template_output_full" filter="php$" hide_none="1" hide_default="1" directory="/components/com_cobalt/fields/embedly/tmpl/output" label="F_TMPLFULL" default="full.php" />
+        </fieldset>
+		<fieldset name="general" label="FS_GENERAL">
+			<field name="theme" label="F_LBLTHEME" type="radio" class="btn-group" default="light">
+				<option value="light">F_OPT_LIGHT</option>
+				<option value="dark">F_OPT_DARK</option>
+			</field>
+			<field name="show_controls" label="F_LBLSHARE" type="radio" class="btn-group" default="0">
+				<option value="1">F_OPT_YES</option>
+				<option value="0">F_OPT_NO</option>
+			</field>
+			<field name="card_align" label="F_LBLALIGN" type="radio" class="btn-group" default="left">
+				<option value="left">F_OPT_LEFT</option>
+				<option value="center">F_OPT_CENTER</option>
+				<option value="right">F_OPT_RIGHT</option>
+			</field>
+        </fieldset>
+    </fields>
+</config></cobaltfield>

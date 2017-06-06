@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="file" method="upgrade">
+    <name>Cobalt - Field - Embedly</name>
+    <author>Patrick Jones</author>
+    <license>GPL GNU</license>
+    <authorEmail>patrick@patrickmjones.com</authorEmail>
+    <authorUrl>http://www.patrickmjones.com</authorUrl>
+    <creationDate>June 2017</creationDate>
+    <copyright>(c) 2017 Patrick Jones</copyright>
+    <version>1.0</version>
+    <description>Cobalt - Field - Embed</description>
+    
+    <fileset>
+        <files target="components/com_cobalt/fields">
+            <folder>embedly</folder>
+        </files>
+        <files folder="embedly/language" target="language/en-GB">
+             <filename>en-GB.com_cobalt_field_embedly.ini</filename>
+        </files>
+
+    </fileset>
+        
+</extension>
