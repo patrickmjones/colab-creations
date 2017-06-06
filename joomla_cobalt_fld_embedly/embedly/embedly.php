@@ -18,11 +18,17 @@ class JFormFieldCEmbedly extends CFormField
 	}
 	public function onRenderFull($record, $type, $section)
 	{
+        if(empty($this->value)) {
+            return; // eject - field is empty
+        }
 		return $this->_display_output('full', $record, $type, $section);
 	}
 
 	public function onRenderList($record, $type, $section)
 	{
+        if(empty($this->value)) {
+            return; // eject - field is empty
+        }
 		return $this->_display_output('list', $record, $type, $section);
 	}
 
