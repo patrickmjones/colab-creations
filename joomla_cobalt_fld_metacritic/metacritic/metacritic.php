@@ -7,9 +7,10 @@
  */
 
 defined('_JEXEC') or die();
-require_once JPATH_ROOT. DIRECTORY_SEPARATOR .'components'.DIRECTORY_SEPARATOR.'com_cobalt'.DIRECTORY_SEPARATOR.'library'.DIRECTORY_SEPARATOR.'php'.DIRECTORY_SEPARATOR.'fields'.DIRECTORY_SEPARATOR.'cobaltfield.php';
-require_once JPATH_ROOT. DIRECTORY_SEPARATOR .'components'. DIRECTORY_SEPARATOR .'com_cobalt' .DIRECTORY_SEPARATOR .'fields' .DIRECTORY_SEPARATOR .'metacritic' .DIRECTORY_SEPARATOR .'helpers' .DIRECTORY_SEPARATOR .'api.php';
-
+$COBALT_PATH = JPATH_ROOT. DIRECTORY_SEPARATOR .'components'. DIRECTORY_SEPARATOR .'com_cobalt' .DIRECTORY_SEPARATOR;
+$PLUGIN_PATH = $COBALT_PATH .'fields' .DIRECTORY_SEPARATOR .'metacritic' .DIRECTORY_SEPARATOR;
+require_once $COBALT_PATH .'library' .DIRECTORY_SEPARATOR .'php'.DIRECTORY_SEPARATOR.'fields'.DIRECTORY_SEPARATOR.'cobaltfield.php';
+require_once $PLUGIN_PATH .'helpers' .DIRECTORY_SEPARATOR .'api.php';
 
 class JFormFieldCMetacritic extends CFormField
 {
@@ -43,6 +44,7 @@ class JFormFieldCMetacritic extends CFormField
                 $cache->store($score, $cache_id);
             }
         }        
+		JFactory::getDocument()->addStyleSheet('components/com_cobalt/fields/metacritic/css/metacritic.css');
 		return $this->_display_output('full', $record, $type, $section);
 	}
 

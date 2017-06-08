@@ -1,0 +1,50 @@
+.metacritic-score-widget {
+    display: block;
+    text-align: center;
+    color: #fff;
+    width: 87px;
+    height: 87px;
+    font-family: arial, verdana, sans-serif;
+    text-decoration:none;
+}
+.metacritic-score-widget:hover {
+	color: #fff;
+}
+
+
+.score-favorable,
+.score-outstanding {
+	background: #6c3;
+}
+.score-mixed {
+	background: #Fc3;
+}
+.score-unfavorable, 
+.score-bad, 
+.score-terrible {
+    background: #f00; 
+}
+.score-mixed {
+
+}
+
+
+
+.metacritic-score-title {
+    display: block;
+    font-size: 11px;
+    line-height: 13px;
+    padding-top: 4px;
+}
+.metacritic-score-value {
+    display: block;
+    font-size: 51px;
+    line-height: 53px;
+    padding: 0;
+    font-weight: bold;
+}
+.metacritic-score-value-total {
+    display: block;
+    font-size: 11px;
+    line-height: 13px;
+}
