@@ -8,7 +8,7 @@
  */
 defined('_JEXEC') or die();
 
-$class[] = $this->params->get('core.field_class', 'inputbox');
+$class[] = $this->params->get('core.field_class', 'inputbox span12');
 $required = NULL;
 
 if ($this->required)
@@ -29,9 +29,11 @@ $mask = $this->params->get('params.mask', 0);
 
 <?php echo $this->params->get('params.prepend');?>
 
-<input type="text" placeholder="<?php echo $this->params->get('params.show_mask', 1) ? $this->params->get('params.mask.mask') : NULL; ?>" name="jform[fields][<?php echo $this->id;?>]"
-	   id="field_<?php echo $this->id;?>" value="<?php echo htmlspecialchars($this->value, ENT_COMPAT, 'UTF-8');?>"
-	<?php echo $class . $size . $disabled . $readonly . $onchange . $maxLength . $required;?>>
+<div class="fluid-row">
+	<input type="text" placeholder="<?php echo $this->params->get('params.show_mask', 1) ? $this->params->get('params.mask.mask') : NULL; ?>" name="jform[fields][<?php echo $this->id;?>]"
+		   id="field_<?php echo $this->id;?>" value="<?php echo htmlspecialchars($this->value, ENT_COMPAT, 'UTF-8');?>"
+		<?php echo $class . $size . $disabled . $readonly . $onchange . $maxLength . $required;?>>
+</div>
 <?php echo $this->params->get('params.append');?>
 				
 <?php if ($mask->mask_type) :?>

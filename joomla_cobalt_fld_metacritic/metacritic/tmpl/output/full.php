@@ -9,9 +9,10 @@ defined('_JEXEC') or die();
 
 $url = $this->values['url'];
 $score = $this->values['score'];
+$level = $this->values['level'];
 
 ?>
-<a class="metacritic-score-widget" href="<?php echo $url; ?>" style="background:#66CC33;" target="_blank">
+<a class="metacritic-score-widget score-<?php echo $level ?>" href="<?php echo $url; ?>" target="_blank">
     <span class="metacritic-score-title">Metascore</span>			
     <span class="metacritic-score-value"><?php echo $score; ?></span>
     <span class="metacritic-score-value-total">out of 100</span>		

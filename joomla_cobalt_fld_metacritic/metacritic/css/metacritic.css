@@ -12,6 +12,7 @@
 }
 
 
+.score-good,
 .score-favorable,
 .score-outstanding {
 	background: #6c3;
@@ -23,9 +24,6 @@
 .score-bad, 
 .score-terrible {
     background: #f00; 
-}
-.score-mixed {
-
 }
 
 

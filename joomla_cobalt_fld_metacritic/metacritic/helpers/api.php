@@ -1,7 +1,5 @@
 <?php
     class MetacriticAPI {
-        private $_enableCaching = false;
-        private $_cacheDuration = 0;
         private $_path = "";
         private $_mcbase = "http://www.metacritic.com";
         function __construct($path) {
@@ -41,14 +39,25 @@
 
         function extractScore() {
             $page = $this->getData();
-            $regexp = '/\<span[^>]* itemprop\="ratingValue"[^>]*\>(.*?)<\/span>/is';
-            preg_match($regexp, $page, $matches);
 
-            if( ctype_digit( $matches[1] ) ) {
-                return (int) $matches[1];
-            } else {
-                return 'xx';
-            }
+			// First, let's try the new embedded data format
+			$regexp = '/<script.*type="application\/ld\+json">(.*?)<\/script>/is';
+			preg_match($regexp, $page, $matches);
+			if(!empty($matches)) {
+				try {
+					$json = json_decode($matches[1], true);
+					return $json['aggregateRating']['ratingValue'];
+				} catch (Exception $err) { return 'xx'; }
+			}else{
+				// As a fallback, let's try the old HTML method
+	            $regexp = '/\<span[^>]* itemprop\="ratingValue"[^>]*\>(.*?)<\/span>/is';
+	            preg_match($regexp, $page, $matches);
+
+    	        if( ctype_digit( $matches[1] ) ) {
+	                return (int) $matches[1];
+	            }
+			}
+	        return 'xx';
         }
     }
 ?>

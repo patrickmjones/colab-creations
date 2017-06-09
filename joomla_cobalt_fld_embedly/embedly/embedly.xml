@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cobaltfield>
     <name>Embed.ly</name>
-    <group>Special Form Elements</group>
+    <group>Media Form Elements</group>
 
     <config><fields name="params">
         <fieldset name="tmpl">

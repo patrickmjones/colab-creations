@@ -28,7 +28,8 @@ class JFormFieldCMetacritic extends CFormField
         if(!empty($url)) {
             $this->values = array();
             $this->values['url'] = $this->value;
-
+			
+			// Let's check the cache first
             $cache = JFactory::getCache('MetacriticCache', '');
             $cache->setCaching(true);
             $cache->setLifeTime(1800); // seconds: 30 mins
@@ -44,6 +45,8 @@ class JFormFieldCMetacritic extends CFormField
                 $cache->store($score, $cache_id);
             }
         }        
+		$score = $this->values['score'];
+		$this->values['level'] = ($score >= 75 ? "good" : ($score >= 40 ? "mixed" : "bad"));
 		JFactory::getDocument()->addStyleSheet('components/com_cobalt/fields/metacritic/css/metacritic.css');
 		return $this->_display_output('full', $record, $type, $section);
 	}
