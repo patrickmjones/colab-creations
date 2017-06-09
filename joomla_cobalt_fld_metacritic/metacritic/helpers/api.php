@@ -13,9 +13,10 @@
         }
 
         function getData() {
-            $agent= 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.0.3705; .NET CLR 1.1.4322)';
+            $agent= 'Mozilla/5.0 (Windows NT 10.0; <64-bit tags>) AppleWebKit/<WebKit Rev> (KHTML, like Gecko) Chrome/<Chrome Rev> Safari/<WebKit Rev> Edge/<EdgeHTML Rev>.<Windows Build>';
             $header[0] = "Accept: text/xml,application/xml,application/xhtml+xml,";
             $header[0] .= "text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
+			$header[] = "User-Agent: " . $agent;
             $header[] = "Cache-Control: max-age=0";
             $header[] = "Connection: keep-alive";
             $header[] = "Keep-Alive: 300";
@@ -23,17 +24,7 @@
             $header[] = "Accept-Language: en-us,en;q=0.5";
             $header[] = "Pragma: ";
 
-            $ch = curl_init($this->getUrl());
-            curl_setopt($ch, CURLOPT_HEADER, 0);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_VERBOSE, true);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_USERAGENT, $agent);
-
-            $mcresults  = curl_exec($ch);
-            curl_close($ch);
-
+			$mcresults = JHttpFactory::getHttp()->get($this->getUrl(), $header);
             return $mcresults;
         }
 
