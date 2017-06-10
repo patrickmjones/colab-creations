@@ -25,7 +25,10 @@
             $header[] = "Pragma: ";
 
 			$mcresults = JHttpFactory::getHttp()->get($this->getUrl(), $header);
-            return $mcresults;
+			if($mcresults && $mcresults->body) {
+	            return $mcresults->body;
+			}
+			return '';
         }
 
         function extractScore() {
